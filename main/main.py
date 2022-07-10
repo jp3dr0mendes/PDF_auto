@@ -1,5 +1,3 @@
-from mmap import PAGESIZE
-from re import X
 from reportlab.pdfgen import canvas
 from reportlab.lib.pagesizes import A4
 import PyPDF2 as ppdf
@@ -25,6 +23,16 @@ content = []
 
 for i in range(file_content.numPages):
     content.append(pages[i].extractText())
+
+# for i in range(100):
+#     cnv_clone.drawString(x,y,f"{i}")
+#     y += 20
+    
+for i in range(file_content.numPages):
+    cnv_clone.drawString(0,750,content[i])
+    cnv_clone.showPage()
+
+
 
 #saving the final PDF file created
 cnv_clone.save()
