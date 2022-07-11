@@ -1,6 +1,7 @@
 from reportlab.pdfgen import canvas
 from reportlab.lib.pagesizes import A4
 import PyPDF2 as ppdf
+import abnt
 
 cnv_teste = canvas.Canvas("pdf_teste/teste.pdf", pagesize=A4)
 
@@ -32,14 +33,10 @@ for i in range(file_content.numPages):
     cnv_clone.drawString(0,750,content[i])
     cnv_clone.showPage()
 
-
+print(abnt.a)
 
 #saving the final PDF file created
 cnv_clone.save()
-# print(file_content.numPages)
-
-# x = 250
-# y = 450
 
 # for i in range(100):
 #     cnv.drawString(x,y,f"{i}")
