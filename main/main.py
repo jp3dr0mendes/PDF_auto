@@ -15,6 +15,6 @@ cnv_clone = canvas.Canvas("pdf_teste/testeclone.pdf", pagesize=A4)
 # file_content = ppdf.PdfFileReader(file)
 content = pdf.extract_content(r'C:\Users\joaop\Documents\PDF_auto\Arquivos Base\Diagnóstico_CTT.pdf')
 
-pdf.draw_text_pdf(cnv_clone,content)
+pdf.draw_text_pdf("pdf_teste/testeclone.pdf",content)
 #saving the final PDF file created
 # cnv_clone.save()
