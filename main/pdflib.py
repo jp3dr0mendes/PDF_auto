@@ -36,9 +36,11 @@ def extract_content(path):
 def mm2p(mm):
     return mm/0.352777
 
-def extract_image(a):
-    if a:
-        input = ppdf.PdfFileReader(open(r'C:\Users\joaop\Documents\PDF_auto\Arquivos Base\Diagnóstico_CTT.pdf','rb'))
+##pass the PDF file path to extract PDF images 
+
+def extract_image(file):
+    if file:
+        input = ppdf.PdfFileReader(open(r'{}'.format(file),'rb'))
         image_pages = []
 
         for i in range(input.numPages):
@@ -46,8 +48,6 @@ def extract_image(a):
         
         objects = []
         images = []
-
-        print(input.numPages)
 
         for i in range(input.numPages):
             if verify_list(image_pages[i]):

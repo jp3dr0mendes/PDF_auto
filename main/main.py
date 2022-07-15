@@ -20,5 +20,6 @@ pdf.draw_text_pdf("pdf_teste/testeclone.pdf",content)
 # cnv_clone.save()
 
 # pdf.image_extract1(1)
-pdf.extract_image(1)
+teste = input('file path:')
+pdf.extract_image(teste)
 # pdf.teste()
