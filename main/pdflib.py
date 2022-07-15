@@ -50,7 +50,6 @@ def extract_image(a):
         print(input.numPages)
 
         for i in range(input.numPages):
-            #a pagina 2 não possui imagem, achar condicional para apenas passar o laço for quando a pagina em questão possuir imagens
             if verify_list(image_pages[i]):
                 objects.append(image_pages[i]['/Resources']['/XObject'].getObject())
                 for obj in objects[i]:
@@ -78,7 +77,8 @@ def extract_image(a):
                             images.append(img)
             else:
                 objects.append(None)
-        print(len(images))
+    else: 
+        print('erro')
 
 def verify_list(list: array):
     a = 0
