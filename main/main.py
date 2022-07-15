@@ -18,3 +18,7 @@ content = pdf.extract_content(r'C:\Users\joaop\Documents\PDF_auto\Arquivos Base\
 pdf.draw_text_pdf("pdf_teste/testeclone.pdf",content)
 #saving the final PDF file created
 # cnv_clone.save()
+
+# pdf.image_extract1(1)
+# pdf.extract_test(1)
+pdf.extract_test(1)
