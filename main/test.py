@@ -78,3 +78,77 @@ cnv_clone.save()
 # for i in range(100):
 #     cnv.drawString(x,y,f"{i}")
 #     y += 20
+
+def teste():
+    input = ppdf.PdfFileReader(open(r'C:\Users\joaop\Documents\PDF_auto\Arquivos Base\Diagnóstico_CTT.pdf','rb'))
+    image_pages = []
+
+    for i in range(input.numPages):
+        image_pages.append(input.getPage(i))
+        
+    objects = []
+    images = []
+
+    print(input.numPages)
+    # print(image_pages[0]['/Resources'][0])
+    # for i in image_pages[0]['/Resources']:
+    #     print(i)
+    # test_array = []
+    for i in range(input.numPages):
+        if verify_list(image_pages[i]):
+            objects.append(image_pages[i]['/Resources']['/XObject'].getObject())
+        else:
+            objects.append(None)
+    print(objects[0]['/Subtype'])
+    # for object in objects[0]:
+    #     if object != None:
+    #         print(object)
+    # print(objects)
+    # for i in range(input.numPages):
+    #     if image_pages[i]['/Resources']['/XObject']:
+    #         objects.append(image_pages[i]['/Resources']['/XObject'])
+    #     else:
+    #         objects.append(None)
+
+def image_extract1(a):
+    if a:
+        input = ppdf.PdfFileReader(open(r'C:\Users\joaop\Documents\PDF_auto\Arquivos Base\Diagnóstico_CTT.pdf','rb'))
+        image_pages = []
+
+        for i in range(input.numPages):
+            image_pages.append(input.getPage(i))
+        
+        objects = []
+        images = []
+
+        print(input.numPages)
+
+        for i in range(input.numPages):
+            #a imagem 2 não possui imagem, achar condicional para apenas passar o laço for quando a pagina em questão possuir imagens
+            objects.append(image_pages[i]['/Resources']['/XObject'].getObject())
+            for obj in objects[i]:
+                if objects[i][obj]['/Subtype'] == '/Image':
+                    size = (objects[i][obj]['/Width'], objects[i][obj]['/Height'])
+                    data = objects[i][obj].get_data()
+                    
+                    if objects[i][obj]['/ColorSpace'] == '/DeviceRGB':
+                        mode = 'RGB'
+                    else:
+                        mode = 'p'
+                    
+                    if objects[i][obj]['/Filter'] == '/FlateDecode':
+                        img = Image.frombytes(mode,size,data)
+                        img.save('/Users/joaop/Documents/PDF_auto/Arquivos Base/images/'+obj[1:]+'.png')
+                        images.append(img)
+                    elif objects[i]['/Filter'] == '/DCTDecode':
+                        img = open('/Users/joaop/Documents/PDF_auto/Arquivos Base/images/'+obj[1:]+'.jpg','wb')
+                        img.write(data)
+                        img.close()
+                        images.append(img)
+                    elif objects[i]['/Filter'] == '/JPXDecode':
+                        img = open('/Users/joaop/Documents/PDF_auto/Arquivos Base/images/'+obj[1:]+'jp2','wb')
+                        img.write(data)
+                        img.close()
+                        images.append(img)
+
+        print(len(images))

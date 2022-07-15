@@ -20,5 +20,5 @@ pdf.draw_text_pdf("pdf_teste/testeclone.pdf",content)
 # cnv_clone.save()
 
 # pdf.image_extract1(1)
-# pdf.extract_test(1)
-pdf.extract_test(1)
+pdf.extract_image(1)
+# pdf.teste()
