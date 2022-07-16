@@ -1,12 +1,10 @@
 /Arquivos Base/Imagens/
-/main/__pycache__
-/main/pdf_teste
 
 *.png
 *.jpg
 *.pyc
+
 pdfteste.pdf
-/Imagens
 /testes
 pdfteste.docx       
 
