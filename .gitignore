@@ -1,3 +1,7 @@
 /Arquivos Base/Imagens/
 /main/__pycache__
 /main/pdf_teste
+
+*.png
+*.jpg
+*.pyc
