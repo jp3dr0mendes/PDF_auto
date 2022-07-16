@@ -7,8 +7,6 @@ from PIL import Image
 import models as md
 
 def draw_text_pdf(path_to_new_pdf_file,contents):
-    from reportlab.lib.units import inch
-
     cnv = canvas.Canvas(path_to_new_pdf_file, pagesize=A4)
     textobjects = []
 
@@ -79,17 +77,17 @@ def extract_image(file):
                             mode = 'p'
                         if objects[i][obj]['/Filter'] == '/FlateDecode':
                             img = Image.frombytes(mode,size,data)
-                            img.save('/Users/joaop/Documents/PDF_auto/Arquivos Base/images/'+obj[1:]+'.png')
+                            img.save('/Users/joaop/Documents/PDF_auto/imagens/'+obj[1:]+'.png')
                             images.append(img)
                             images.append(obj[1:])
                         elif objects[i][obj]['/Filter'] == '/DCTDecode':
-                            img = open('/Users/joaop/Documents/PDF_auto/Arquivos Base/images/'+obj[1:]+'.jpg','wb')
+                            img = open('/Users/joaop/Documents/PDF_auto/imagens/'+obj[1:]+'.jpg','wb')
                             img.write(data)
                             img.close()
                             images.append(img)
                             images.append(obj[1:])
                         elif objects[i][obj]['/Filter'] == '/JPXDecode':
-                            img = open('/Users/joaop/Documents/PDF_auto/Arquivos Base/images/'+obj[1:]+'jp2','wb')
+                            img = open('/Users/joaop/Documents/PDF_auto/imagens/'+obj[1:]+'jp2','wb')
                             img.write(data)
                             img.close()
                             images.append(img)
@@ -99,3 +97,7 @@ def extract_image(file):
         print(images)
     else: 
         print('erro')
+
+    def init():
+        #main function to write
+        print('a')
