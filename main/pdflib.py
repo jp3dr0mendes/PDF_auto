@@ -13,7 +13,7 @@ def draw_text_pdf(path_to_new_pdf_file,contents):
     for i in range(len(contents)):
         textobjects.append(cnv.beginText())
         textobjects[i].setTextOrigin(mm2p(30),mm2p(267))
-        textobjects[i].setFont("Helvetica-Oblique", 12)
+        textobjects[i].setFont("Helvetica", 12)
         textobjects[i].textLines(contents[i])
         cnv.drawText(textobjects[i])
         cnv.showPage()
@@ -98,6 +98,6 @@ def extract_image(file):
     else: 
         print('erro')
 
-    def init():
-        #main function to write
-        print('a')
+def init():
+    #main function to write
+    print('a')

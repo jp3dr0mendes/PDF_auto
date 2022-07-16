@@ -5,3 +5,9 @@
 *.png
 *.jpg
 *.pyc
+pdfteste.pdf
+/Imagens
+/testes
+pdfteste.docx       
+
+!requirements.txt
