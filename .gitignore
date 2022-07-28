@@ -16,5 +16,7 @@ teste_coord_pdf.pdf
 output.txt
 teste2.pdf
 
+*.docx
+
 !requirements.txt
 !/testes/main.py
