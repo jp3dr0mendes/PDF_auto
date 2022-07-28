@@ -3,6 +3,7 @@ from reportlab.pdfgen import canvas
 from reportlab.lib.pagesizes import A4
 import PyPDF2 as ppdf
 import abnt
+import pdflib as pdf
 
 cnv_teste = canvas.Canvas("pdf_teste/teste.pdf", pagesize=A4)
 #define title and name of the PDF what will be generate
@@ -12,6 +13,9 @@ file = open(r'C:\Users\joaop\Documents\PDF_auto\Arquivos Base\Diagnóstico_CTT.p
 
 #reading the pdf file content
 file_content = ppdf.PdfFileReader(file)
+print(file_content.getFormTextFields())
+# print(file_content.page_mode())
+print(file_content.page_layout())
 
 #getting the page objects of PDF file
 
@@ -68,12 +72,12 @@ def draw_text_pdf(canvas,contents):
 	# ''')
     # canvas.drawText(textobject) #desenha no objeto Canva o que está escrito no objeto do tipo canva.beginText()
 
-draw_text_pdf(cnv_clone,teste)
-print(type(teste))
+# pdf.draw_text_pdf(cnv_clone,teste)
+# print(type(teste))
 # print(abnt.a)
 
 #saving the final PDF file created
-cnv_clone.save()
+# cnv_clone.save()
 
 # for i in range(100):
 #     cnv.drawString(x,y,f"{i}")
@@ -152,3 +156,25 @@ def image_extract1(a):
                         images.append(img)
 
         print(len(images))
+
+# print('-----------')
+# print(pages[0])
+# print("------------")
+
+# print(type(pages[0]))
+# print(type(file_content))
+
+# for page in pages[0]['/StructParents']:
+#     print(page)
+#     print('-------------')
+
+# teste = pages[0]['/Resources']['/Font'].getObject()
+# print(teste['/F1'])
+# print('-------------')
+# for test in teste:
+#     print(test)
+
+# print(pages[0]['/StructParents'])
+# for i in pages[0]['/Resources']['/ProcSet'][0]:
+#     print(i)
+# print(type(pages[0]['/Parent']['/Count']))

@@ -1,4 +1,8 @@
 /Arquivos Base/Imagens/
+/Imagens
+/main/pdf_teste
+/main/__pycache__
+/testes
 
 *.png
 *.jpg
@@ -6,6 +10,11 @@
 
 pdfteste.pdf
 /testes
-pdfteste.docx       
+pdfteste.docx
+docxteste.docx       
+teste_coord_pdf.pdf
+output.txt
+teste2.pdf
 
 !requirements.txt
+!/testes/main.py
