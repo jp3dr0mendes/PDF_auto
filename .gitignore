@@ -18,5 +18,7 @@ teste2.pdf
 
 *.docx
 
+*.png
+
 !requirements.txt
 !/testes/main.py

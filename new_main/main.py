@@ -17,8 +17,13 @@ import fitz
 import os
 import win32com.client
 import PyPDF2 as ppdf
+import excel2img
 
 document = Document('teste_model.docx')
+
+'''
+Substituição de texto
+'''
 
 for paragraph in document.paragraphs:
     if '[marcação 1]' in paragraph.text:
@@ -31,6 +36,10 @@ document.save(new_doc+".docx")
 convert(new_doc+".docx",new_doc+".pdf")
 #removendo o arquivo .docx modificado que foi gerado como auxiliar
 os.remove(new_doc+".docx")
+
+'''
+Inserção de imagens no arquivo
+'''
 
 def mm2p(mm):
     return mm/0.352777
@@ -79,7 +88,7 @@ for i in range(len(contents)):
         # cnv.drawImage(r"C:\Users\joaop\Documents\PDF_auto\Imagens\Image13.png",coord[0],coord[2],mask='auto')
         print('passou imagem')
         #salvando o documento com a imagem inserida
-        doc.save('teste2.pdf')
+        doc.save('teste2-1.pdf')
         #fechando o documento
         doc.close()
         # doc.save('teste.pdf',garbage=4, deflate=True, clean=True)
@@ -87,6 +96,12 @@ for i in range(len(contents)):
 print('passou4')
 
 cnv.save()
+
+'''
+Conversão de Excel para Imagem
+'''
+
+# excel2img.export_img('teste.xlsx','image_teste.png','sheet!A1:J11')
 
 # workbook = [
 #     r"C:\Users\joaop\Documents\PDF_auto\Arquivos_Base\Lev. Atualizado 2022_Equatorial.xlsm",

@@ -1,9 +1,11 @@
 from urllib.error import ContentTooShortError
 from reportlab.pdfgen import canvas
 from reportlab.lib.pagesizes import A4
+from reportlab.pdfgen import canvas
 import PyPDF2 as ppdf
 import abnt
 import pdflib as pdf
+from PIL import Image
 
 content = pdf.extract_content(r'C:\Users\joaop\Documents\PDF_auto\Arquivos Base\Diagnóstico_CTT.pdf')
 
